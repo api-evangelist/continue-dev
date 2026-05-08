@@ -3,7 +3,10 @@ url: https://raw.githubusercontent.com/api-evangelist/continue-dev/refs/heads/ma
 name: Continue
 x-type: company
 description: >-
-  Continue is an open-source AI code assistant for VS Code and JetBrains, supporting custom models, prompts, rules, and tools. Hub for sharing AI configurations across teams.
+  Continue is the leading open-source AI code assistant for VS Code and JetBrains under
+  Apache 2.0. The Continue CLI powers source-controlled AI checks (markdown-defined) that
+  run in CI as GitHub status checks. The Continue Hub hosts shared assistants, blocks,
+  models, and rules that teams can pull into their config.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - AI
@@ -11,13 +14,78 @@ tags:
   - Open Source
   - Code Completion
   - Customization
+  - Apache 2.0
+  - CLI
+  - CI
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - aid: continue-dev:extensions
+    name: Continue VS Code & JetBrains Extensions
+    description: >-
+      Open-source IDE extensions providing autocomplete, chat, edit, and agent experiences.
+      Supports any LLM provider (OpenAI, Anthropic, Mistral, local models via Ollama, etc.)
+      and any context source.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.continue.dev/
+    baseURL: https://www.continue.dev
+    tags:
+      - Extensions
+      - VS Code
+      - JetBrains
+      - Open Source
+    properties:
+      - type: GitHub
+        url: https://github.com/continuedev/continue
+      - type: Documentation
+        url: https://docs.continue.dev/
+      - type: License
+        url: 'Apache 2.0'
+      - type: Install
+        url: https://docs.continue.dev/ide-extensions/install
+  - aid: continue-dev:cli
+    name: Continue CLI
+    description: >-
+      Open-source CLI that powers source-controlled AI checks. Checks live as markdown
+      files in `.continue/checks/` and run in CI; results surface as GitHub status checks.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://github.com/continuedev/continue
+    baseURL: https://github.com/continuedev/continue
+    tags:
+      - CLI
+      - CI
+      - Code Review
+      - Open Source
+    properties:
+      - type: GitHub
+        url: https://github.com/continuedev/continue
+      - type: ChecksDocs
+        url: https://continue.dev/check
+  - aid: continue-dev:hub
+    name: Continue Hub
+    description: >-
+      Hosted hub for sharing AI assistants, blocks, models, and rules. Used by teams to
+      standardize Continue configurations across the org.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://hub.continue.dev/
+    baseURL: https://hub.continue.dev
+    tags:
+      - Hub
+      - Configuration
+      - Sharing
+    properties:
+      - type: ProductPage
+        url: https://hub.continue.dev/
 common:
   - type: Website
     url: https://www.continue.dev/
+  - type: Documentation
+    url: https://docs.continue.dev/
+  - type: GitHub
+    url: https://github.com/continuedev/continue
+  - type: Hub
+    url: https://hub.continue.dev/
   - type: Plans
     url: plans/continue-dev-plans-pricing.yml
   - type: RateLimits
