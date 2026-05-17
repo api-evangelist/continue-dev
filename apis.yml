@@ -1,7 +1,7 @@
 aid: continue-dev
 url: https://raw.githubusercontent.com/api-evangelist/continue-dev/refs/heads/main/apis.yml
 name: Continue
-x-type: company
+kind: company
 description: >-
   Continue is the leading open-source AI code assistant for VS Code and JetBrains under
   Apache 2.0. The Continue CLI powers source-controlled AI checks (markdown-defined) that
