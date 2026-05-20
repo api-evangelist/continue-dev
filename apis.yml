@@ -78,6 +78,8 @@ apis:
       - type: ProductPage
         url: https://hub.continue.dev/
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/continuedev
   - type: Website
     url: https://www.continue.dev/
   - type: Documentation
