@@ -94,6 +94,8 @@ common:
     url: rate-limits/continue-dev-rate-limits.yml
   - type: FinOps
     url: finops/continue-dev-finops.yml
+  - type: LLMsTxt
+    url: https://docs.continue.dev/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
