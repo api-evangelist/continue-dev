@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/continue-dev/continue-dev-organization-schema.json",
+  "title": "Continue Hub Organization",
+  "description": "Schema for a Continue Hub organization as returned by GET /ide/list-organizations.",
+  "type": "object",
+  "required": ["id", "name", "slug"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Organization identifier."
+    },
+    "name": {
+      "type": "string",
+      "description": "Organization display name."
+    },
+    "slug": {
+      "type": "string",
+      "description": "Organization slug used in hub URLs and assistant ownership."
+    },
+    "iconUrl": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "Pre-signed URL for the organization's icon."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "configResult": {
+      "config": {
+        "name": "My Assistant",
+        "version": "1.0.0",
+        "models": [
+          {
+            "name": "Claude Sonnet 4.6",
+            "provider": "anthropic",
+            "model": "claude-sonnet-4-6",
+            "roles": ["chat", "edit", "apply"]
+          }
+        ],
+        "rules": ["You are a helpful coding assistant."],
+        "context": [{"provider": "code"}, {"provider": "docs"}]
+      },
+      "configLoadInterrupted": false,
+      "errors": null
+    },
+    "ownerSlug": "continuedev",
+    "packageSlug": "default-assistant",
+    "iconUrl": "https://hub.continue.dev/icons/default.png",
+    "onPremProxyUrl": null,
+    "useOnPremProxy": false,
+    "rawYaml": "name: My Assistant\nversion: 1.0.0\nmodels:\n  - name: Claude Sonnet 4.6\n    provider: anthropic\n    model: claude-sonnet-4-6\n    roles: [chat, edit, apply]\nrules:\n  - You are a helpful coding assistant.\ncontext:\n  - provider: code\n  - provider: docs\n"
+  }
+]

@@ -1,0 +1,46 @@
+extends:
+  - "spectral:oas"
+rules:
+  operation-summary-title-case:
+    description: Operation summary should use Title Case.
+    given: $.paths[*][get,post,put,patch,delete].summary
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][\\w-]*)(\\s+(?:[A-Z][\\w-]*|for|to|by|in|on|of|and|or|the|a|an|with))*$"
+  operation-operationid-present:
+    description: All operations must have an operationId.
+    given: $.paths[*][get,post,put,patch,delete]
+    severity: error
+    then:
+      field: operationId
+      function: truthy
+  operation-tags-defined:
+    description: Operations must declare tags so they appear grouped in tooling.
+    given: $.paths[*][get,post,put,patch,delete]
+    severity: warn
+    then:
+      field: tags
+      function: truthy
+  bearer-auth-only:
+    description: Continue Hub IDE API uses bearer auth with the con_ prefix on the API key.
+    given: $.components.securitySchemes[*]
+    severity: warn
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          required: [type, scheme]
+          properties:
+            type: { const: http }
+            scheme: { const: bearer }
+  paths-must-start-with-ide:
+    description: All Hub IDE API paths must be under /ide.
+    given: $.paths
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/ide(/|$)"

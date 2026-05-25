@@ -1,0 +1,16 @@
+{
+  "organizations": [
+    {
+      "id": "org_01HQ4Z5K3M9R7W2X8Y6N4P0F2C",
+      "name": "Continue Dev",
+      "slug": "continuedev",
+      "iconUrl": "https://hub.continue.dev/icons/orgs/continuedev.png"
+    },
+    {
+      "id": "org_01HQ4Z5K3M9R7W2X8Y6N4P0FAB",
+      "name": "Naftiko",
+      "slug": "naftiko",
+      "iconUrl": null
+    }
+  ]
+}

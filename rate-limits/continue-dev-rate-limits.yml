@@ -4,32 +4,46 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Continue
 providerId: continue-dev
 created: '2026-05-08'
-modified: '2026-05-08'
-reconciled: false
+modified: '2026-05-25'
+reconciled: true
 tags:
 - AI
 - Developer Tools
-- Open Source
-- Code Completion
-- Customization
-- Rate Limiting
+- Rate Limits
 - Quotas
 - Throttling
-description: Placeholder rate-limit artifact for Continue. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+description: Continue Hub IDE API (api.continue.dev) returns HTTP 429 on quota exhaustion. The free trial enforces per-user chat and autocomplete counts via /ide/free-trial-status. Inference rate limits ultimately depend on the LLM provider the user routes through — Anthropic, OpenAI, Mistral, OpenRouter, Ollama, or the Continue-managed proxy.
 sources:
-- https://www.continue.dev/
+- https://github.com/continuedev/continue/blob/main/packages/continue-sdk/openapi.yaml
+- https://www.continue.dev/pricing
 responseCodes:
   throttled: 429
 limits:
-- name: Default
-  scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+- name: Hub IDE API
+  scope: per-user
+  metric: requests
+  limit: provider-enforced
+  notes: api.continue.dev /ide/* endpoints return HTTP 429 when per-user quotas are exceeded. /ide/list-assistant-full-slugs in particular is currently flagged as always returning 429 in the spec.
+- name: Free Trial Chat
+  scope: per-user
+  metric: chat-messages
+  limit: chatLimit returned by /ide/free-trial-status
+  notes: Per-user cap on chat messages allowed in Continue's managed free trial.
+- name: Free Trial Autocomplete
+  scope: per-user
+  metric: autocomplete-requests
+  limit: autocompleteLimit returned by /ide/free-trial-status
+  notes: Per-user cap on autocomplete requests allowed in Continue's managed free trial.
+- name: BYO LLM Provider
+  scope: per-provider
+  metric: requests / tokens
+  limit: pass-through
+  notes: When users bring their own LLM provider, rate limits and concurrency are governed by that provider, not Continue.
 policies:
 - name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+  description: Clients should implement exponential backoff with jitter and honor any Retry-After header on 429 responses from api.continue.dev.
+- name: Free-Trial Polling
+  description: IDE extensions and the CLI should poll /ide/free-trial-status to surface remaining chat and autocomplete quota to the user before the cap is hit.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

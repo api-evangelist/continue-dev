@@ -1,101 +1,341 @@
 aid: continue-dev
 url: https://raw.githubusercontent.com/api-evangelist/continue-dev/refs/heads/main/apis.yml
 name: Continue
-kind: company
-description: >-
-  Continue is the leading open-source AI code assistant for VS Code and JetBrains under
-  Apache 2.0. The Continue CLI powers source-controlled AI checks (markdown-defined) that
-  run in CI as GitHub status checks. The Continue Hub hosts shared assistants, blocks,
-  models, and rules that teams can pull into their config.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+kind: contract
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+access: 3rd-Party
 tags:
-  - AI
-  - Developer Tools
-  - Open Source
-  - Code Completion
-  - Customization
-  - Apache 2.0
-  - CLI
-  - CI
+- AI
+- Artificial Intelligence
+- Developer Tools
+- Code Assistant
+- Open Source
+- VS Code
+- JetBrains
+- CLI
+- MCP
+- Apache 2.0
 created: '2026-05-08'
-modified: '2026-05-08'
-specificationVersion: '0.19'
+modified: '2026-05-25'
+specificationVersion: '0.16'
+position: Consuming
+description: >-
+  Continue is the open-source AI code assistant for VS Code and JetBrains, distributed under
+  Apache 2.0. The Continue IDE extensions and the Continue CLI federate to any LLM provider —
+  Anthropic, OpenAI, Mistral, OpenRouter, Ollama, and a Continue-managed proxy — and load their
+  configuration from Continue Hub. Continue Hub (api.continue.dev) is the registry and IDE API
+  that serves assistants, blocks, models, rules, prompts, docs, and MCP servers to the
+  extensions, along with free-trial status, organization policy, secrets sync, and the Stripe
+  checkout URL for the Models Add-On. Continue has also pivoted into "continuous AI" — source-
+  controlled checks that live as markdown files under .continue/checks/ and run in CI as
+  GitHub status checks.
 apis:
-  - aid: continue-dev:extensions
-    name: Continue VS Code & JetBrains Extensions
-    description: >-
-      Open-source IDE extensions providing autocomplete, chat, edit, and agent experiences.
-      Supports any LLM provider (OpenAI, Anthropic, Mistral, local models via Ollama, etc.)
-      and any context source.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    humanURL: https://docs.continue.dev/
-    baseURL: https://www.continue.dev
-    tags:
-      - Extensions
-      - VS Code
-      - JetBrains
-      - Open Source
-    properties:
-      - type: GitHub
-        url: https://github.com/continuedev/continue
-      - type: Documentation
-        url: https://docs.continue.dev/
-      - type: License
-        url: 'Apache 2.0'
-      - type: Install
-        url: https://docs.continue.dev/ide-extensions/install
-  - aid: continue-dev:cli
-    name: Continue CLI
-    description: >-
-      Open-source CLI that powers source-controlled AI checks. Checks live as markdown
-      files in `.continue/checks/` and run in CI; results surface as GitHub status checks.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    humanURL: https://github.com/continuedev/continue
-    baseURL: https://github.com/continuedev/continue
-    tags:
-      - CLI
-      - CI
-      - Code Review
-      - Open Source
-    properties:
-      - type: GitHub
-        url: https://github.com/continuedev/continue
-      - type: ChecksDocs
-        url: https://continue.dev/check
-  - aid: continue-dev:hub
-    name: Continue Hub
-    description: >-
-      Hosted hub for sharing AI assistants, blocks, models, and rules. Used by teams to
-      standardize Continue configurations across the org.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    humanURL: https://hub.continue.dev/
-    baseURL: https://hub.continue.dev
-    tags:
-      - Hub
-      - Configuration
-      - Sharing
-    properties:
-      - type: ProductPage
-        url: https://hub.continue.dev/
-common:
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/continuedev
-  - type: Website
-    url: https://www.continue.dev/
+- aid: continue-dev:continue-hub-ide-api
+  name: Continue Hub IDE API
+  tags:
+  - Hub
+  - IDE
+  - Assistants
+  - Organizations
+  - AI
+  humanURL: https://github.com/continuedev/continue/blob/main/packages/continue-sdk/openapi.yaml
+  baseURL: https://api.continue.dev
+  properties:
+  - url: https://github.com/continuedev/continue/tree/main/packages/continue-sdk
+    type: Documentation
+  - url: openapi/continue-dev-hub-ide-api-openapi.yml
+    type: OpenAPI
+  - url: json-schema/continue-dev-assistant-schema.json
+    type: JSONSchema
+  - url: json-schema/continue-dev-organization-schema.json
+    type: JSONSchema
+  - url: json-schema/continue-dev-free-trial-status-schema.json
+    type: JSONSchema
+  - url: json-structure/continue-dev-assistant-structure.json
+    type: JSONStructure
+  - url: json-ld/continue-dev-context.jsonld
+    type: JSONLD
+  - url: examples/continue-dev-list-assistants-example.json
+    type: Example
+  - url: examples/continue-dev-list-organizations-example.json
+    type: Example
+  - url: examples/continue-dev-free-trial-status-example.json
+    type: Example
+  - type: NaftikoCapability
+    url: capabilities/hub-ide.yaml
+  - type: SDK
+    url: https://www.npmjs.com/package/@continuedev/sdk
+    name: TypeScript SDK
+  - type: SDK
+    url: https://pypi.org/project/continuedev-sdk/
+    name: Python SDK
+  description: >-
+    REST API exposed by api.continue.dev that the Continue VS Code and JetBrains extensions
+    and the Continue CLI use to list and refresh assistants, list organizations, fetch
+    organization policy, sync user secrets, check free-trial chat/autocomplete quota, and
+    obtain a Stripe checkout URL for the Models Add-On. Bearer auth with API keys prefixed
+    con_, generated in the Continue Hub web interface. Auto-generated TypeScript and Python
+    clients ship in packages/continue-sdk in the open-source continuedev/continue monorepo.
+- aid: continue-dev:ide-extensions
+  name: Continue IDE Extensions
+  tags:
+  - VS Code
+  - JetBrains
+  - Open Source
+  - Apache 2.0
+  - AI
+  humanURL: https://docs.continue.dev/
+  baseURL: https://www.continue.dev
+  properties:
+  - type: GitHubRepository
+    url: https://github.com/continuedev/continue
   - type: Documentation
     url: https://docs.continue.dev/
-  - type: GitHub
+  - type: License
+    url: https://github.com/continuedev/continue/blob/main/LICENSE
+    name: Apache 2.0
+  description: >-
+    Open-source IDE plugins shipping for VS Code and JetBrains. Provide chat, edit, apply,
+    autocomplete, and agent modes. Bring your own LLM (Anthropic, OpenAI, Mistral,
+    OpenRouter, Ollama) or use the Continue-managed proxy on the Hub Starter/Team tiers.
+    Configured via YAML assistants pulled from Continue Hub.
+- aid: continue-dev:continue-cli
+  name: Continue CLI
+  tags:
+  - CLI
+  - CI
+  - Checks
+  - Open Source
+  - AI
+  humanURL: https://docs.continue.dev/checks/quickstart
+  baseURL: https://continue.dev/check
+  properties:
+  - type: GitHubRepository
     url: https://github.com/continuedev/continue
-  - type: Hub
+  - type: Documentation
+    url: https://docs.continue.dev/checks/quickstart
+  - type: Documentation
+    url: https://docs.continue.dev/checks/running-locally
+    name: Run Checks Locally
+  - type: Documentation
+    url: https://docs.continue.dev/checks/running-in-ci
+    name: Run Checks in CI
+  description: >-
+    Open-source command-line interface powering Continue's source-controlled AI checks.
+    Checks are markdown files in .continue/checks/ that run as full AI agents against pull
+    requests and surface results as GitHub status checks. Also runs assistants locally and
+    headlessly.
+- aid: continue-dev:continue-hub
+  name: Continue Hub
+  tags:
+  - Hub
+  - Registry
+  - Assistants
+  - Blocks
+  - MCP
+  humanURL: https://hub.continue.dev/
+  baseURL: https://hub.continue.dev
+  properties:
+  - type: Portal
     url: https://hub.continue.dev/
-  - type: Plans
-    url: plans/continue-dev-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/continue-dev-rate-limits.yml
-  - type: FinOps
-    url: finops/continue-dev-finops.yml
-  - type: LLMsTxt
-    url: https://docs.continue.dev/llms.txt
+  - type: Documentation
+    url: https://docs.continue.dev/
+  - type: SignUp
+    url: https://continue.dev/login
+  description: >-
+    Hosted registry where teams publish and share assistants, blocks (models, rules,
+    prompts, docs, MCP servers, context providers), and policy. Powers the Continue Hub IDE
+    API and is the primary commercial surface alongside the open-source extensions and CLI.
+- aid: continue-dev:mission-control
+  name: Continue Mission Control
+  tags:
+  - Mission Control
+  - Metrics
+  - Observability
+  - Checks
+  humanURL: https://docs.continue.dev/mission-control/metrics
+  baseURL: https://continue.dev
+  properties:
+  - type: Documentation
+    url: https://docs.continue.dev/mission-control/beyond-checks
+    name: Beyond Checks
+  - type: Documentation
+    url: https://docs.continue.dev/mission-control/metrics
+    name: Metrics
+  description: >-
+    Observability surface for tracking check outcomes, agent runs, and adoption metrics
+    across an organization's repositories. Part of the Team and Company tiers.
+common:
+- type: Website
+  url: https://www.continue.dev/
+- type: Portal
+  url: https://www.continue.dev/
+- type: Documentation
+  url: https://docs.continue.dev/
+- type: GitHubOrganization
+  url: https://github.com/continuedev
+- type: GitHubRepository
+  url: https://github.com/continuedev/continue
+- type: LinkedIn
+  url: https://www.linkedin.com/company/continuedev
+- type: Blog
+  url: https://blog.continue.dev/
+- type: SignUp
+  url: https://continue.dev/login
+- type: Pricing
+  url: https://www.continue.dev/pricing
+- type: GettingStarted
+  url: https://docs.continue.dev/
+- type: Documentation
+  url: https://docs.continue.dev/checks/quickstart
+  name: Quickstart — Write Your First Check
+- type: Documentation
+  url: https://docs.continue.dev/checks/reference
+  name: Check File Reference
+- type: ChecksDocs
+  url: https://continue.dev/check
+- type: Hub
+  url: https://hub.continue.dev/
+- type: License
+  url: https://github.com/continuedev/continue/blob/main/LICENSE
+  name: Apache 2.0
+- type: SDK
+  url: https://github.com/continuedev/continue/tree/main/packages/continue-sdk/typescript
+  name: TypeScript SDK (continue-sdk)
+- type: SDK
+  url: https://github.com/continuedev/continue/tree/main/packages/continue-sdk/python
+  name: Python SDK (continue-sdk)
+- type: Tool
+  url: https://github.com/continuedev/rules
+  name: rules CLI (cross-assistant rule conversion)
+- type: Tool
+  url: https://github.com/continuedev/create-software-factory
+  name: create-software-factory (scaffold .continue agents and checks)
+- type: Tool
+  url: https://github.com/continuedev/pollhook
+  name: pollhook (poll REST APIs, deliver webhooks)
+- type: Tool
+  url: https://github.com/continuedev/instinct
+  name: Instinct (open Next Edit model)
+- type: CodeExamples
+  url: https://github.com/continuedev/awesome-rules
+  name: awesome-rules
+- type: CodeExamples
+  url: https://github.com/continuedev/checks
+  name: Continue checks library
+- type: Plugins
+  url: https://github.com/continuedev/anthropic-continue-hub
+  name: Anthropic Continue Hub block
+- type: Plugins
+  url: https://github.com/continuedev/openai-continue-hub
+  name: OpenAI Continue Hub block
+- type: Plugins
+  url: https://github.com/continuedev/mistral-continue-hub
+  name: Mistral Continue Hub block
+- type: Plugins
+  url: https://github.com/continuedev/openrouter-continue-hub
+  name: OpenRouter Continue Hub block
+- type: Plugins
+  url: https://github.com/continuedev/ollama-continue-hub
+  name: Ollama Continue Hub block
+- type: Plugins
+  url: https://github.com/continuedev/google-continue-hub
+  name: Google Continue Hub block
+- type: SpectralRules
+  url: rules/continue-dev-rules.yml
+- type: Vocabulary
+  url: vocabulary/continue-dev-vocabulary.yml
+- type: Plans
+  url: plans/continue-dev-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/continue-dev-rate-limits.yml
+- type: FinOps
+  url: finops/continue-dev-finops.yml
+- type: LLMsTxt
+  url: https://docs.continue.dev/llms.txt
+- type: Features
+  data:
+  - Open-source VS Code extension with 33k+ GitHub stars on continuedev/continue
+  - Open-source JetBrains plugin (IntelliJ, PyCharm, GoLand, WebStorm, etc.)
+  - Open-source Continue CLI for local and CI execution
+  - Source-controlled AI checks (.continue/checks/*.md) that run as GitHub status checks on every PR
+  - Source-controlled assistants (.continue/agents/*.yaml) versioned alongside code
+  - Continue Hub registry for sharing assistants, blocks, models, rules, prompts, docs, and MCP servers
+  - Continue Hub IDE API (api.continue.dev) with 8 REST endpoints under /ide for assistants, organizations, policy, free-trial, secrets, and checkout
+  - BYO LLM provider — Anthropic, OpenAI, Mistral, OpenRouter, Ollama, AWS Bedrock, Google, xAI, Together AI, Cerebras, SambaNova, and more via Hub blocks
+  - Continue-managed proxy (alwaysUseProxy=true) routes model traffic through Continue with pass-through billing
+  - On-prem proxy option for organizations that need to keep prompt traffic inside their network
+  - Free trial with per-user chat and autocomplete quota tracked via /ide/free-trial-status
+  - Models Add-On purchasable via /ide/get-models-add-on-checkout-url (Stripe)
+  - Organization policy (allowed models, secret handling, telemetry) returned by /ide/policy
+  - Secrets sync from Hub to IDE via /ide/sync-secrets
+  - Mission Control metrics for tracking check outcomes and agent runs across repos
+  - Apache 2.0 license on extensions and CLI
+  - Auto-generated TypeScript and Python SDKs from the OpenAPI spec at packages/continue-sdk
+  - Swagger UI for local API exploration via npm run swagger-ui in packages/continue-sdk
+  - 70+ official Continue Hub blocks (per-provider repos under github.com/continuedev)
+  - Instinct — Continue's open Next Edit model
+  - Bearer auth with API keys prefixed con_
+  sources:
+  - https://www.continue.dev/
+  - https://www.continue.dev/pricing
+  - https://docs.continue.dev/
+  - https://github.com/continuedev
+  - https://github.com/continuedev/continue/blob/main/packages/continue-sdk/openapi.yaml
+- type: UseCases
+  data:
+  - name: In-editor AI chat, edit, and apply
+    description: Use any frontier or local model directly inside VS Code and JetBrains without lock-in to one vendor.
+  - name: Source-controlled coding standards enforced in CI
+    description: Define checks as markdown in .continue/checks/, have AI enforce them on every PR, see results as GitHub status checks.
+  - name: Team-shared assistants
+    description: Publish assistants on Continue Hub so every engineer pulls the same models, rules, prompts, docs, and MCP servers.
+  - name: BYO LLM cost control
+    description: Federate to a self-hosted Ollama, an OpenRouter account, or your own Anthropic/OpenAI key to keep AI spend on your existing provider.
+  - name: On-prem prompt isolation
+    description: Route model traffic through an on-prem Continue proxy so prompts and secrets never leave the corporate network.
+  - name: Local autocomplete with Ollama
+    description: Run code completion against a local model for zero-egress, zero-cost inference.
+  - name: MCP tool integration
+    description: Compose MCP servers into a Continue assistant to give the agent access to internal tools without writing extension code.
+  - name: Continuous AI
+    description: Apply Continue's "standards as checks" model to legacy codebases — codify standards in markdown, then have AI agents drag the codebase toward them.
+- type: Integrations
+  data:
+  - name: Anthropic
+    description: Use Claude Opus, Sonnet, and Haiku as the chat/edit/apply/autocomplete model inside Continue. Anthropic-continue-hub publishes ready-to-use blocks.
+  - name: OpenAI
+    description: Use GPT-class models as Continue model providers via openai-continue-hub.
+  - name: Mistral
+    description: mistral-continue-hub publishes Mistral models as Continue blocks.
+  - name: OpenRouter
+    description: openrouter-continue-hub federates to any OpenRouter-hosted model.
+  - name: Ollama
+    description: ollama-continue-hub points Continue at a local Ollama server for zero-egress inference.
+  - name: AWS Bedrock
+    description: bedrock-continue-hub uses Bedrock-hosted models, including Claude on Bedrock.
+  - name: Google
+    description: google-continue-hub federates to Gemini and Vertex AI models.
+  - name: Together AI, xAI, Cerebras, SambaNova, Cohere, IBM watsonx, Novita, NCompass, Inception Labs, Relace, IONOS
+    description: Per-provider Continue Hub repositories ship blocks for each.
+  - name: GitHub
+    description: Continue checks run in CI and report status checks back to the GitHub PR. The check-cli, checks-cli, and suggestions-cli automate these flows.
+  - name: Slack, Sentry, Snyk
+    description: Starter tier and above can connect Continue agents to Slack, Sentry, and Snyk.
+  - name: Docker
+    description: docker-continue-hub publishes Docker-authored blocks for Continue.
+  - name: Model Context Protocol
+    description: Continue assistants compose MCP servers as tool sources; Continue maintains a fork of the official MCP TypeScript SDK.
+- type: Solutions
+  data:
+  - name: Continuous AI for engineering teams
+    description: Codify coding standards as markdown checks; AI agents enforce them in CI on every pull request.
+  - name: Open-source AI IDE for any LLM
+    description: Drop-in replacement for proprietary AI coding assistants without surrendering model choice or telemetry control.
+  - name: Hub-managed assistant distribution
+    description: Centralize team assistants on Continue Hub instead of per-engineer config sprawl.
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: info@apievangelist.com
+  X: apievangelist
+  url: https://apievangelist.com

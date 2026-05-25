@@ -1,0 +1,61 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "continue": "https://api.continue.dev/ide/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Assistant": {
+      "@id": "continue:Assistant",
+      "@context": {
+        "ownerSlug": { "@id": "continue:Assistant/ownerSlug", "@type": "xsd:string" },
+        "packageSlug": { "@id": "continue:Assistant/packageSlug", "@type": "xsd:string" },
+        "iconUrl": { "@id": "schema:image", "@type": "xsd:anyURI" },
+        "onPremProxyUrl": { "@id": "continue:Assistant/onPremProxyUrl", "@type": "xsd:anyURI" },
+        "useOnPremProxy": { "@id": "continue:Assistant/useOnPremProxy", "@type": "xsd:boolean" },
+        "rawYaml": { "@id": "continue:Assistant/rawYaml", "@type": "xsd:string" },
+        "configResult": { "@id": "continue:Assistant/configResult", "@type": "continue:ConfigResult" }
+      }
+    },
+
+    "ConfigResult": {
+      "@id": "continue:ConfigResult",
+      "@context": {
+        "config": { "@id": "continue:ConfigResult/config" },
+        "configLoadInterrupted": { "@id": "continue:ConfigResult/configLoadInterrupted", "@type": "xsd:boolean" },
+        "errors": { "@id": "continue:ConfigResult/errors", "@container": "@list" }
+      }
+    },
+
+    "Organization": {
+      "@id": "continue:Organization",
+      "@context": {
+        "id": { "@id": "schema:identifier", "@type": "xsd:string" },
+        "name": { "@id": "schema:name", "@type": "xsd:string" },
+        "slug": { "@id": "continue:Organization/slug", "@type": "xsd:string" },
+        "iconUrl": { "@id": "schema:image", "@type": "xsd:anyURI" }
+      }
+    },
+
+    "FreeTrialStatus": {
+      "@id": "continue:FreeTrialStatus",
+      "@context": {
+        "optedInToFreeTrial": { "@id": "continue:FreeTrialStatus/optedInToFreeTrial", "@type": "xsd:boolean" },
+        "chatCount": { "@id": "continue:FreeTrialStatus/chatCount", "@type": "xsd:integer" },
+        "autocompleteCount": { "@id": "continue:FreeTrialStatus/autocompleteCount", "@type": "xsd:integer" },
+        "chatLimit": { "@id": "continue:FreeTrialStatus/chatLimit", "@type": "xsd:integer" },
+        "autocompleteLimit": { "@id": "continue:FreeTrialStatus/autocompleteLimit", "@type": "xsd:integer" }
+      }
+    },
+
+    "Policy": {
+      "@id": "continue:Policy",
+      "@context": {
+        "organizationId": { "@id": "continue:Policy/organizationId", "@type": "xsd:string" },
+        "policy": { "@id": "continue:Policy/policy" }
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+vocabulary: 0.1
+info:
+  title: Continue Vocabulary
+  description: Controlled vocabulary for Continue — the open-source AI code assistant for VS Code and JetBrains, plus the Continue Hub IDE API and Continue CLI.
+  created: '2026-05-25'
+  modified: '2026-05-25'
+terms:
+  - id: assistant
+    label: Assistant
+    definition: A YAML-defined Continue Hub configuration bundling models, rules, prompts, docs, MCP servers, and context providers that an IDE extension or CLI consumes.
+    aliases: [continue-assistant, hub-assistant]
+  - id: block
+    label: Block
+    definition: A reusable Continue Hub building block — a single model, rule, prompt, doc, MCP server, or context provider — that can be composed into an assistant.
+  - id: hub
+    label: Continue Hub
+    definition: Continue's hosted registry at hub.continue.dev where teams publish and share assistants, blocks, models, rules, prompts, docs, and MCP servers.
+    aliases: [continue-hub]
+  - id: rule
+    label: Rule
+    definition: A natural-language guideline an assistant applies to every chat, edit, or autocomplete interaction.
+  - id: prompt
+    label: Prompt
+    definition: A reusable, named instruction (often shipped in a .prompt file) the IDE or CLI can invoke.
+  - id: check
+    label: Check
+    definition: A markdown-defined Continue agent stored in .continue/checks/ that runs in CI on every pull request and surfaces as a GitHub status check.
+  - id: agent
+    label: Agent
+    definition: A Continue execution mode in which the model autonomously edits files, runs commands, and uses tools to complete a task.
+  - id: ide-extension
+    label: IDE Extension
+    definition: The open-source Continue plugin shipped for VS Code and JetBrains IDEs.
+  - id: cli
+    label: Continue CLI
+    definition: The open-source Continue command-line interface that runs checks locally and in CI.
+  - id: mcp-server
+    label: MCP Server
+    definition: A Model Context Protocol server an assistant connects to in order to expose extra tools, prompts, or resources.
+  - id: context-provider
+    label: Context Provider
+    definition: A Continue plugin that injects additional information (code, docs, terminal output, git diffs) into the model's context window.
+  - id: model-role
+    label: Model Role
+    definition: The role an LLM plays inside a Continue assistant — chat, edit, apply, autocomplete, embed, or rerank.
+  - id: free-trial
+    label: Free Trial
+    definition: Continue's hosted, quota-limited trial of chat and autocomplete that lets new users try the IDE without configuring an LLM provider.
+  - id: models-add-on
+    label: Models Add-On
+    definition: A paid subscription, billed via Stripe through /ide/get-models-add-on-checkout-url, that grants additional Continue-managed model usage on top of a plan.
+  - id: on-prem-proxy
+    label: On-Prem Proxy
+    definition: A self-hosted Continue proxy organizations route model traffic through to keep prompts inside their own network perimeter.
+  - id: organization
+    label: Organization
+    definition: A team scope on Continue Hub that owns assistants, blocks, secrets, and policy.
+  - id: policy
+    label: Policy
+    definition: Organization-level Continue settings — allowed models, secret handling, telemetry, and proxy enforcement — returned by GET /ide/policy.
+  - id: mission-control
+    label: Mission Control
+    definition: Continue's metrics and observability surface for tracking checks, agent runs, and outcomes across an organization's repositories.
+  - id: continuous-ai
+    label: Continuous AI
+    definition: Continue's positioning — source-controlled AI standards enforced on every pull request, "standards as checks, enforced by AI, decided by humans."

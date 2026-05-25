@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/continue-dev/continue-dev-assistant-schema.json",
+  "title": "Continue Hub Assistant",
+  "description": "Schema for a Continue Hub assistant returned by the Continue Hub IDE API (api.continue.dev). Assistants are YAML-defined IDE configurations bundling models, rules, prompts, docs, MCP servers, and other context.",
+  "type": "object",
+  "required": ["configResult", "ownerSlug", "packageSlug"],
+  "properties": {
+    "configResult": {
+      "type": "object",
+      "description": "The unrolled assistant configuration plus loading status.",
+      "required": ["config", "configLoadInterrupted"],
+      "properties": {
+        "config": {
+          "type": ["object", "null"],
+          "description": "The unrolled assistant configuration (models, rules, prompts, docs, MCP servers, context providers)."
+        },
+        "configLoadInterrupted": {
+          "type": "boolean",
+          "description": "Whether configuration loading was interrupted."
+        },
+        "errors": {
+          "type": ["array", "null"],
+          "description": "Errors that occurred during configuration loading.",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "ownerSlug": {
+      "type": "string",
+      "description": "Slug of the user or organization that owns the assistant."
+    },
+    "packageSlug": {
+      "type": "string",
+      "description": "Slug of the assistant package on Continue Hub."
+    },
+    "iconUrl": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "Pre-signed URL for the assistant's icon."
+    },
+    "onPremProxyUrl": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "URL of the on-premises Continue proxy if the organization uses one."
+    },
+    "useOnPremProxy": {
+      "type": ["boolean", "null"],
+      "description": "Whether the organization routes model traffic through an on-premises proxy."
+    },
+    "rawYaml": {
+      "type": "string",
+      "description": "Raw YAML configuration of the assistant as published to Continue Hub."
+    }
+  }
+}

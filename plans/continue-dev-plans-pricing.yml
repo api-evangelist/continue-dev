@@ -4,38 +4,103 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Continue
 providerId: continue-dev
 created: '2026-05-08'
-modified: '2026-05-08'
-reconciled: false
+modified: '2026-05-25'
+reconciled: true
 tags:
 - AI
 - Developer Tools
 - Open Source
-- Code Completion
-- Customization
+- Pricing
 - Plans
-description: Placeholder plans/pricing artifact for Continue. Replace with real published pricing once
-  the pipeline researches the provider's plans page.
-notes: Initial scaffold — plans/pricing have not yet been reconciled against the provider's documentation.
+description: Continue offers three commercial tiers on top of the open-source IDE extensions and CLI — Starter (pay-as-you-go), Team (per-seat with included credits), and Company (custom enterprise). Token costs flow through at $3/M tokens for input and output on the Starter tier; Team includes $10 of credits per seat per month.
 sources:
+- https://www.continue.dev/pricing
 - https://www.continue.dev/
 plans:
-- id: continue-dev-default
-  name: To Be Reconciled
-  type: enterprise
-  description: Initial scaffold; replace with provider plan tiers once pricing is reconciled.
+- id: open-source
+  name: Open Source
+  type: free
+  description: The Continue VS Code and JetBrains extensions and the Continue CLI are open-source under Apache 2.0 — free to install and use with any LLM provider you bring yourself.
   entries:
-  - label: API Access
-    name: api_access
+  - label: Extensions and CLI
+    name: open_source
     type: flat
-    metric: varies
+    metric: install
     limit: -1
     timeFrame: usage
     geo: global
     unit: 1
-    price: see https://www.continue.dev/
+    price: 0
     userMultiplied: false
   elements:
-  - name: Pending Reconciliation
+  - name: Apache 2.0 licensed VS Code and JetBrains extensions
+  - name: Open-source Continue CLI for local and CI use
+  - name: Bring your own LLM provider (Anthropic, OpenAI, Mistral, OpenRouter, Ollama, local)
+  - name: Source-controlled assistants and checks in .continue/
+- id: starter
+  name: Starter
+  type: paid
+  description: Pay-as-you-go entry tier for individual users. Run AI agents, connect Slack/Sentry/Snyk, and purchase frontier model credits at $3/M tokens.
+  entries:
+  - label: Tokens
+    name: tokens
+    type: usage
+    metric: token
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1000000
+    price: 3
+    userMultiplied: false
+    description: Input and output tokens billed at $3 per million on the Starter tier.
+  elements:
+  - name: Create and run AI agents
+  - name: Connect integrations (Slack, Sentry, Snyk)
+  - name: Purchase frontier model credits
+  - name: $3 / million tokens (input and output)
+- id: team
+  name: Team
+  type: paid
+  description: Per-seat tier for teams. Includes $10 of model credits per seat, team agent management, sharing, usage controls, and Gmail/GitHub SSO.
+  entries:
+  - label: Seat
+    name: seat
+    type: subscription
+    metric: user
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 20
+    userMultiplied: true
+    description: Per-seat monthly subscription. Includes $10 in credits per seat.
+  elements:
+  - name: Everything in Starter
+  - name: Team agent management and sharing
+  - name: Usage controls per team
+  - name: Gmail and GitHub SSO login
+  - name: $10 in model credits per seat per month
+- id: company
+  name: Company
+  type: enterprise
+  description: Enterprise tier with custom SSO, BYO API keys, SLAs, and committed invoicing. Contact sales.
+  entries:
+  - label: Custom
+    name: custom
+    type: contract
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact-sales
+    userMultiplied: false
+  elements:
+  - name: Everything in Team
+  - name: Custom SSO (SAML / OIDC)
+  - name: Bring-your-own API keys
+  - name: SLA guarantees
+  - name: Commitment and invoicing
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

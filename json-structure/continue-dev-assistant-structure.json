@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/draft/2025-09/schema",
+  "title": "Continue Hub Assistant Structure",
+  "description": "JSON Structure representation of a Continue Hub assistant returned by the Continue Hub IDE API.",
+  "type": "object",
+  "properties": {
+    "configResult": {
+      "type": "object",
+      "properties": {
+        "config": { "type": "object", "nullable": true },
+        "configLoadInterrupted": { "type": "boolean" },
+        "errors": { "type": "array", "items": { "type": "string" }, "nullable": true }
+      }
+    },
+    "ownerSlug": { "type": "string" },
+    "packageSlug": { "type": "string" },
+    "iconUrl": { "type": "string", "format": "uri", "nullable": true },
+    "onPremProxyUrl": { "type": "string", "format": "uri", "nullable": true },
+    "useOnPremProxy": { "type": "boolean", "nullable": true },
+    "rawYaml": { "type": "string" }
+  }
+}

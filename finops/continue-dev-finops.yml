@@ -4,21 +4,18 @@ schema: https://www.finops.org/framework/
 provider: Continue
 providerId: continue-dev
 created: '2026-05-08'
-modified: '2026-05-08'
-reconciled: false
+modified: '2026-05-25'
+reconciled: true
 tags:
 - AI
 - Developer Tools
-- Open Source
-- Code Completion
-- Customization
 - FinOps
-- Cost Management
 - FOCUS
-description: FOCUS-aligned FinOps placeholder for Continue. Pipeline will replace with real billing details.
-notes: Initial scaffold — billing model has not yet been reconciled.
+- Cost Management
+description: Continue's cost surface splits across three lines — the open-source extensions and CLI (free under Apache 2.0), Continue Hub subscription tiers (Starter pay-as-you-go, Team per-seat with $10/seat credits, Company enterprise with BYO API keys), and the user's chosen LLM provider. Starter token usage runs $3 per million input and $3 per million output tokens routed through the Continue-managed proxy.
 sources:
-- https://www.continue.dev/
+- https://www.continue.dev/pricing
+- https://github.com/continuedev/continue/blob/main/packages/continue-sdk/openapi.yaml
 - https://focus.finops.org/focus-specification/v1-3/
 alignedWith:
   framework: FinOps Foundation Framework
@@ -27,40 +24,64 @@ alignedWith:
   dataSpecVersion: '1.3'
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 publisherName: Continue
-serviceCategory: AI
+serviceCategory: AI and Machine Learning
 billingModel:
-  pricingCategory: To Be Reconciled
+  pricingCategory: Usage and Subscription
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
   - Usage
+  - Subscription
+  - Credit
   - Purchase
-  - Adjustment
 focusColumns:
-  ServiceName: Continue
-  ServiceCategory: AI
+  ServiceName: Continue Hub
+  ServiceCategory: AI and Machine Learning
   ProviderName: Continue
   PublisherName: Continue
   InvoiceIssuerName: Continue
   BillingCurrency: USD
   ChargeCategory: Usage
+  PricingCategory: Usage
+  SubAccountId: Continue Hub organization ID
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation.
-  unit: varies
+- name: tokens
+  description: Input and output tokens routed through the Continue-managed proxy on the Starter tier. $3 per million tokens.
+  unit: 1M tokens
   aggregation: sum
   dimensions:
-  - account
-  - resource
+  - user
+  - organization
+  - model
+- name: seat
+  description: Per-seat monthly subscription on the Team tier ($20/seat/month, $10/seat credit included).
+  unit: seat-month
+  aggregation: count
+  dimensions:
+  - organization
+- name: model_credits
+  description: USD credit balance applied against Continue-managed model usage.
+  unit: USD
+  aggregation: sum
+  dimensions:
+  - user
+  - organization
+- name: byo_llm_passthrough
+  description: LLM provider charges that pass through to the user's own API key when BYO is enabled (Company tier).
+  unit: provider-specific
+  aggregation: pass-through
+  dimensions:
+  - organization
+  - provider
 principles:
 - name: Visibility
-  description: Pull provider invoices or usage exports until a self-serve usage feed is documented.
+  description: Pull Continue Hub invoices and per-organization usage in tandem with LLM provider invoices to see total AI cost — Continue cost alone undercounts BYO LLM spend.
 - name: Allocation
-  description: Tag invoice line items to consuming business units in your FinOps store.
+  description: Tag spend by Continue Hub organization (SubAccountId) and by underlying LLM provider so per-team AI cost can be attributed.
 - name: Optimization
-  description: Levers depend on the provider's billing model; review at renewal once reconciled.
+  description: Move heavy users from Starter pay-as-you-go to Team for the included $10/seat credit; on Company, BYO API keys to negotiate provider rates directly.
 - name: Accountability
-  description: Assign a contract owner to review billing against negotiated terms.
+  description: Assign each Continue Hub organization owner as the FinOps contact for both the Continue subscription and the LLM provider linked to it.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

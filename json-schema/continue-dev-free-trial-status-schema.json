@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/continue-dev/continue-dev-free-trial-status-schema.json",
+  "title": "Continue Free Trial Status",
+  "description": "Schema for the free-trial status response from GET /ide/free-trial-status. Tracks the per-user chat and autocomplete quotas for Continue's hosted free trial.",
+  "type": "object",
+  "required": ["optedInToFreeTrial", "chatLimit", "autocompleteLimit"],
+  "properties": {
+    "optedInToFreeTrial": {
+      "type": "boolean",
+      "description": "Whether the user has opted into the Continue-managed free trial."
+    },
+    "chatCount": {
+      "type": ["number", "null"],
+      "description": "Current number of chat messages used in the trial window."
+    },
+    "autocompleteCount": {
+      "type": ["number", "null"],
+      "description": "Current number of autocomplete requests used in the trial window."
+    },
+    "chatLimit": {
+      "type": "number",
+      "description": "Maximum number of chat messages allowed in the free trial."
+    },
+    "autocompleteLimit": {
+      "type": "number",
+      "description": "Maximum number of autocomplete requests allowed in the free trial."
+    }
+  }
+}
