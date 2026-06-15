@@ -1,0 +1,188 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Continue Hub IDE API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "List Assistants for IDE",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.continue.dev/ide/list-assistants",
+        "params": [
+          {
+            "name": "alwaysUseProxy",
+            "value": "",
+            "type": "query",
+            "description": "Whether to always use the Continue-managed proxy for model requests"
+          },
+          {
+            "name": "organizationId",
+            "value": "",
+            "type": "query",
+            "description": "ID of the organization to scope assistants to. If not provided, personal assistants are returned."
+          }
+        ],
+        "auth": {
+          "type": "bearer",
+          "token": "{{bearerToken}}"
+        }
+      },
+      "docs": "Returns a complete list of assistants available to the user, with their full configurations,\nicons, and other metadata needed by the IDE to display and use them.\n\nThis endpoint performs a full refresh of the list of assistants, including unrolling\nconfigurations and resolving secrets.\n"
+    },
+    {
+      "info": {
+        "name": "Get a Specific Assistant by Slug",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.continue.dev/ide/get-assistant/:ownerSlug/:packageSlug",
+        "params": [
+          {
+            "name": "ownerSlug",
+            "value": "",
+            "type": "path",
+            "description": "Slug of the user or organization that owns the assistant"
+          },
+          {
+            "name": "packageSlug",
+            "value": "",
+            "type": "path",
+            "description": "Slug of the assistant package"
+          },
+          {
+            "name": "alwaysUseProxy",
+            "value": "",
+            "type": "query",
+            "description": "Whether to always use the Continue-managed proxy for model requests"
+          },
+          {
+            "name": "organizationId",
+            "value": "",
+            "type": "query",
+            "description": "ID of the organization to scope assistants to. If not provided, personal assistants are returned."
+          }
+        ],
+        "auth": {
+          "type": "bearer",
+          "token": "{{bearerToken}}"
+        }
+      },
+      "docs": "Returns a single assistant configuration by its owner and package slug.\nThis endpoint is useful when you need to retrieve or refresh a specific assistant\nwithout fetching the entire list.\n"
+    },
+    {
+      "info": {
+        "name": "Get Free Trial Status for User",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.continue.dev/ide/free-trial-status",
+        "auth": {
+          "type": "bearer",
+          "token": "{{bearerToken}}"
+        }
+      },
+      "docs": "Returns the current free trial status for the authenticated user, including\nusage counts and limits for chat and autocomplete features.\n"
+    },
+    {
+      "info": {
+        "name": "Get Stripe Checkout URL for Models Add-On",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.continue.dev/ide/get-models-add-on-checkout-url",
+        "params": [
+          {
+            "name": "profile_id",
+            "value": "",
+            "type": "query",
+            "description": "Profile ID to include in the callback URL"
+          },
+          {
+            "name": "vscode_uri_scheme",
+            "value": "",
+            "type": "query",
+            "description": "VS Code URI scheme to include in the callback URL"
+          }
+        ],
+        "auth": {
+          "type": "bearer",
+          "token": "{{bearerToken}}"
+        }
+      },
+      "docs": "Creates a Stripe checkout session for the models add-on subscription\nand returns the checkout URL.\n"
+    },
+    {
+      "info": {
+        "name": "Get Organization Policy",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.continue.dev/ide/policy",
+        "auth": {
+          "type": "bearer",
+          "token": "{{bearerToken}}"
+        }
+      },
+      "docs": "Returns the policy configuration for the first organization\nthat the user belongs to which has a policy configured.\n"
+    },
+    {
+      "info": {
+        "name": "Synchronize Secrets for User",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.continue.dev/ide/sync-secrets",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        },
+        "auth": {
+          "type": "bearer",
+          "token": "{{bearerToken}}"
+        }
+      },
+      "docs": "Resolves and synchronizes secrets for the authenticated user based on\nthe provided Fully Qualified Secret Names (FQSNs).\n"
+    },
+    {
+      "info": {
+        "name": "List Assistant Full Slugs",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.continue.dev/ide/list-assistant-full-slugs",
+        "auth": {
+          "type": "bearer",
+          "token": "{{bearerToken}}"
+        }
+      },
+      "docs": "This endpoint is temporarily disabled and returns a 429 status code\nto prevent constant refreshes of the full assistant list until a\nfixed client version can be deployed.\n"
+    },
+    {
+      "info": {
+        "name": "List Organizations for User",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.continue.dev/ide/list-organizations",
+        "auth": {
+          "type": "bearer",
+          "token": "{{bearerToken}}"
+        }
+      },
+      "docs": "Returns a list of organizations that the authenticated user belongs to,\nincluding organization metadata and pre-signed icon URLs.\n"
+    }
+  ],
+  "bundled": true
+}
