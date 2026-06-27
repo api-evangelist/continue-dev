@@ -54,15 +54,15 @@ apis:
       - url: json-ld/continue-dev-context.jsonld
         type: JSONLD
       - url: examples/continue-dev-list-assistants-example.json
-        type: Example
+        type: Examples
       - url: examples/continue-dev-list-organizations-example.json
-        type: Example
+        type: Examples
       - url: examples/continue-dev-free-trial-status-example.json
-        type: Example
-      - type: SDK
+        type: Examples
+      - type: SDKs
         url: https://www.npmjs.com/package/@continuedev/sdk
         name: TypeScript SDK
-      - type: SDK
+      - type: SDKs
         url: https://pypi.org/project/continuedev-sdk/
         name: Python SDK
     description: >-
@@ -133,7 +133,7 @@ apis:
         url: https://hub.continue.dev/
       - type: Documentation
         url: https://docs.continue.dev/
-      - type: SignUp
+      - type: Signup
         url: https://continue.dev/login
     description: >-
       Hosted registry where teams publish and share assistants, blocks (models, rules, prompts, docs, MCP servers,
@@ -173,7 +173,7 @@ common:
     url: https://www.linkedin.com/company/continuedev
   - type: Blog
     url: https://blog.continue.dev/
-  - type: SignUp
+  - type: Signup
     url: https://continue.dev/login
   - type: Pricing
     url: https://www.continue.dev/pricing
@@ -192,22 +192,22 @@ common:
   - type: License
     url: https://github.com/continuedev/continue/blob/main/LICENSE
     name: Apache 2.0
-  - type: SDK
+  - type: SDKs
     url: https://github.com/continuedev/continue/tree/main/packages/continue-sdk/typescript
     name: TypeScript SDK (continue-sdk)
-  - type: SDK
+  - type: SDKs
     url: https://github.com/continuedev/continue/tree/main/packages/continue-sdk/python
     name: Python SDK (continue-sdk)
-  - type: Tool
+  - type: Tools
     url: https://github.com/continuedev/rules
     name: rules CLI (cross-assistant rule conversion)
-  - type: Tool
+  - type: Tools
     url: https://github.com/continuedev/create-software-factory
     name: create-software-factory (scaffold .continue agents and checks)
-  - type: Tool
+  - type: Tools
     url: https://github.com/continuedev/pollhook
     name: pollhook (poll REST APIs, deliver webhooks)
-  - type: Tool
+  - type: Tools
     url: https://github.com/continuedev/instinct
     name: Instinct (open Next Edit model)
   - type: CodeExamples
@@ -244,7 +244,7 @@ common:
     url: rate-limits/continue-dev-rate-limits.yml
   - type: FinOps
     url: finops/continue-dev-finops.yml
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.continue.dev/llms.txt
   - type: Features
     data:
