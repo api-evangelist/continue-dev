@@ -159,6 +159,10 @@ apis:
       Observability surface for tracking check outcomes, agent runs, and adoption metrics across an organization's
       repositories. Part of the Team and Company tiers.
 common:
+  - type: DomainSecurity
+    url: security/continue-dev-domain-security.yml
+  - type: Authentication
+    url: authentication/continue-dev-authentication.yml
   - type: Website
     url: https://www.continue.dev/
   - type: Portal

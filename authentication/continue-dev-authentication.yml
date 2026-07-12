@@ -1,0 +1,19 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/continue-dev-hub-ide-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: apiKeyAuth
+  type: http
+  scheme: bearer
+  description: |-
+    API Key Authentication
+
+    API keys must be prefixed with "con_" and provided in the Authorization header.
+    Example: `Authorization: Bearer con_your_api_key_here`
+
+    API keys can be generated in the Continue Hub web interface under account settings.
+  sources:
+  - openapi/continue-dev-hub-ide-api-openapi.yml
