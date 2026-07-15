@@ -159,6 +159,8 @@ apis:
       Observability surface for tracking check outcomes, agent runs, and adoption metrics across an organization's
       repositories. Part of the Team and Company tiers.
 common:
+  - type: AgenticAccess
+    url: agentic-access/continue-dev-agentic-access.yml
   - type: DomainSecurity
     url: security/continue-dev-domain-security.yml
   - type: Authentication
