@@ -12,7 +12,7 @@ schemes:
     API Key Authentication
 
     API keys must be prefixed with "con_" and provided in the Authorization header.
-    Example: `Authorization: Bearer con_your_api_key_here`
+    Example: `Authorization: Bearer [example key]`
 
     API keys can be generated in the Continue Hub web interface under account settings.
   sources:
