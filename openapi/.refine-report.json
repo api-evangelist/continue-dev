@@ -1,0 +1,14 @@
+{
+  "provider": "continue-dev",
+  "sources": [
+    "continue-dev-ide-api-openapi.yml"
+  ],
+  "outputs": [
+    "continue-dev-ide-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
