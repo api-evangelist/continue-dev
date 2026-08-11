@@ -161,6 +161,16 @@ apis:
   - type: SDKs
     url: https://pypi.org/project/continuedev-sdk/
 common:
+  - type: IssueTracker
+    url: https://github.com/continuedev/continue/issues
+  - type: Releases
+    url: https://github.com/continuedev/continue/releases
+  - type: SecurityPolicy
+    url: https://github.com/continuedev/continue/blob/main/SECURITY.md
+  - type: CodeOfConduct
+    url: https://github.com/continuedev/continue/blob/main/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/continuedev/continue/blob/main/CONTRIBUTING.md
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/continue/overview
   - type: AgenticAccess
