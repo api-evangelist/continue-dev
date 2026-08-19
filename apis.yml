@@ -30,7 +30,7 @@ tags:
   - Apache 2.0
 created: '2026-05-08'
 modified: '2026-05-25'
-specificationVersion: '0.16'
+specificationVersion: '0.23'
 position: Consuming
 description: >-
   Continue is the open-source AI code assistant for VS Code and JetBrains, distributed under Apache 2.0. The Continue
