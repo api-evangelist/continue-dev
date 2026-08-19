@@ -1,0 +1,1463 @@
+{
+  "item": [
+    {
+      "id": "23e934db-2590-4e57-8b7d-1de9f7045e48",
+      "name": "Ide",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3d8348d9-56d2-4ade-ac3d-d5b4ff595e2d",
+          "name": "List Assistants for IDE",
+          "request": {
+            "name": "List Assistants for IDE",
+            "description": {
+              "content": "Returns a complete list of assistants available to the user, with their full configurations,\nicons, and other metadata needed by the IDE to display and use them.\n\nThis endpoint performs a full refresh of the list of assistants, including unrolling\nconfigurations and resolving secrets.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ide",
+                "list-assistants"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "alwaysUseProxy",
+                  "value": "<string>",
+                  "description": "Whether to always use the Continue-managed proxy for model requests"
+                },
+                {
+                  "disabled": false,
+                  "key": "organizationId",
+                  "value": "<string>",
+                  "description": "ID of the organization to scope assistants to. If not provided, personal assistants are returned."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "56a1a634-0db5-4fbc-8c17-ad3674d90879",
+              "name": "Successfully retrieved assistants",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ide",
+                    "list-assistants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alwaysUseProxy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organizationId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"configResult\": {\n      \"config\": {},\n      \"configLoadInterrupted\": false,\n      \"errors\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"ownerSlug\": \"string\",\n    \"packageSlug\": \"string\",\n    \"iconUrl\": \"string\",\n    \"onPremProxyUrl\": \"string\",\n    \"useOnPremProxy\": true,\n    \"rawYaml\": \"string\"\n  },\n  {\n    \"configResult\": {\n      \"config\": {},\n      \"configLoadInterrupted\": false,\n      \"errors\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"ownerSlug\": \"string\",\n    \"packageSlug\": \"string\",\n    \"iconUrl\": \"string\",\n    \"onPremProxyUrl\": \"string\",\n    \"useOnPremProxy\": true,\n    \"rawYaml\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c94e3417-bd56-4af2-8ec4-5c8f73d32853",
+              "name": "Unauthorized - Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ide",
+                    "list-assistants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alwaysUseProxy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organizationId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e05658b4-2cca-4bd4-8c33-6ee9eef35f75",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ide",
+                    "list-assistants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alwaysUseProxy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organizationId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"User not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "15b6898e-2ac8-4312-8ff8-ac78cfa40221",
+          "name": "Get a Specific Assistant by Slug",
+          "request": {
+            "name": "Get a Specific Assistant by Slug",
+            "description": {
+              "content": "Returns a single assistant configuration by its owner and package slug.\nThis endpoint is useful when you need to retrieve or refresh a specific assistant\nwithout fetching the entire list.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ide",
+                "get-assistant",
+                ":ownerSlug",
+                ":packageSlug"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "alwaysUseProxy",
+                  "value": "<string>",
+                  "description": "Whether to always use the Continue-managed proxy for model requests"
+                },
+                {
+                  "disabled": false,
+                  "key": "organizationId",
+                  "value": "<string>",
+                  "description": "ID of the organization to scope assistants to. If not provided, personal assistants are returned."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ownerSlug",
+                  "description": "(Required) Slug of the user or organization that owns the assistant"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "packageSlug",
+                  "description": "(Required) Slug of the assistant package"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6cf5e0ca-f210-44bd-b4c3-b9814a01acf9",
+              "name": "Successfully retrieved assistant",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ide",
+                    "get-assistant",
+                    ":ownerSlug",
+                    ":packageSlug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alwaysUseProxy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organizationId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ownerSlug",
+                      "description": "(Required) Slug of the user or organization that owns the assistant"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "packageSlug",
+                      "description": "(Required) Slug of the assistant package"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"configResult\": {\n    \"config\": {},\n    \"configLoadInterrupted\": false,\n    \"errors\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"ownerSlug\": \"string\",\n  \"packageSlug\": \"string\",\n  \"iconUrl\": \"string\",\n  \"onPremProxyUrl\": \"string\",\n  \"useOnPremProxy\": false,\n  \"rawYaml\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a9835ca-f685-4d62-bc07-26136c72e5a6",
+              "name": "Unauthorized - Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ide",
+                    "get-assistant",
+                    ":ownerSlug",
+                    ":packageSlug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alwaysUseProxy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organizationId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ownerSlug",
+                      "description": "(Required) Slug of the user or organization that owns the assistant"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "packageSlug",
+                      "description": "(Required) Slug of the assistant package"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4cb22a0c-210b-4187-8e2c-c8e1bfd9c4d9",
+              "name": "Forbidden - Assistant not allowed in organization",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ide",
+                    "get-assistant",
+                    ":ownerSlug",
+                    ":packageSlug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alwaysUseProxy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organizationId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ownerSlug",
+                      "description": "(Required) Slug of the user or organization that owns the assistant"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "packageSlug",
+                      "description": "(Required) Slug of the assistant package"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"This assistant is not allowed in this organization\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "427d508a-806b-4fd4-b602-9f5a454bdac3",
+              "name": "User or assistant not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ide",
+                    "get-assistant",
+                    ":ownerSlug",
+                    ":packageSlug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "alwaysUseProxy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organizationId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ownerSlug",
+                      "description": "(Required) Slug of the user or organization that owns the assistant"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "packageSlug",
+                      "description": "(Required) Slug of the assistant package"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Assistant not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57bb6f8f-48d4-4fab-9702-f0e15dcb7d0b",
+          "name": "Get Free Trial Status for User",
+          "request": {
+            "name": "Get Free Trial Status for User",
+            "description": {
+              "content": "Returns the current free trial status for the authenticated user, including\nusage counts and limits for chat and autocomplete features.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ide",
+                "free-trial-status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "34c730cc-3570-4f06-81bf-5b339d0b31a7",
+              "name": "Successfully retrieved free trial status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ide",
+                    "free-trial-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"optedInToFreeTrial\": false,\n  \"chatLimit\": 5886.012384074418,\n  \"autocompleteLimit\": 5711.797985271061,\n  \"chatCount\": 1897.3272031633737,\n  \"autocompleteCount\": 166.19590220780634\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "27d808b6-b0e1-4010-a6f3-0fef5ee1890d",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ide",
+                    "free-trial-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"User not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ebb07b5-e082-4370-b66a-5966f8a4dc0b",
+          "name": "Get Stripe Checkout URL for Models Add-On",
+          "request": {
+            "name": "Get Stripe Checkout URL for Models Add-On",
+            "description": {
+              "content": "Creates a Stripe checkout session for the models add-on subscription\nand returns the checkout URL.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ide",
+                "get-models-add-on-checkout-url"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "profile_id",
+                  "value": "<string>",
+                  "description": "Profile ID to include in the callback URL"
+                },
+                {
+                  "disabled": false,
+                  "key": "vscode_uri_scheme",
+                  "value": "<string>",
+                  "description": "VS Code URI scheme to include in the callback URL"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fb52aab7-221f-4ad8-ab62-15f71f2212a7",
+              "name": "Successfully created checkout session",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ide",
+                    "get-models-add-on-checkout-url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "profile_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "vscode_uri_scheme",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57b0469c-efe9-41f2-b7be-9f59f573f400",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ide",
+                    "get-models-add-on-checkout-url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "profile_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "vscode_uri_scheme",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"User not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98acb407-6bc6-4886-83d3-e76dfb8b0cc7",
+              "name": "Failed to create checkout session",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ide",
+                    "get-models-add-on-checkout-url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "profile_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "vscode_uri_scheme",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Failed to create checkout session\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43107dc0-8d1b-4e30-9df0-207413c6cffd",
+          "name": "Get Organization Policy",
+          "request": {
+            "name": "Get Organization Policy",
+            "description": {
+              "content": "Returns the policy configuration for the first organization\nthat the user belongs to which has a policy configured.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ide",
+                "policy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a07242c4-9a07-44df-a485-e9a0cf247f22",
+              "name": "Successfully retrieved policy",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ide",
+                    "policy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"policy\": {},\n  \"orgSlug\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a26bb04-5b8d-4482-80cd-3d8244d0561c",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ide",
+                    "policy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"User not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74ea2025-493b-42f2-967a-7a81fbf3175b",
+          "name": "Synchronize Secrets for User",
+          "request": {
+            "name": "Synchronize Secrets for User",
+            "description": {
+              "content": "Resolves and synchronizes secrets for the authenticated user based on\nthe provided Fully Qualified Secret Names (FQSNs).\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ide",
+                "sync-secrets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fqsns\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"orgScopeId\": \"<string>\",\n  \"orgScopeSlug\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "80911eac-be72-4c58-8144-1f230e7bd7e9",
+              "name": "Successfully resolved secrets",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ide",
+                    "sync-secrets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fqsns\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"orgScopeId\": \"<string>\",\n  \"orgScopeSlug\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d28dfa57-fafc-47b5-a319-d58c14081dee",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ide",
+                    "sync-secrets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fqsns\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"orgScopeId\": \"<string>\",\n  \"orgScopeSlug\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"User not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3db0572-f0cd-4827-a4a1-dfcce24e468f",
+          "name": "List Assistant Full Slugs",
+          "request": {
+            "name": "List Assistant Full Slugs",
+            "description": {
+              "content": "This endpoint is temporarily disabled and returns a 429 status code\nto prevent constant refreshes of the full assistant list until a\nfixed client version can be deployed.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ide",
+                "list-assistant-full-slugs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "436ec429-1804-475e-a8b2-1cb4ea6dfe92",
+              "name": "Too many requests - endpoint temporarily disabled",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ide",
+                    "list-assistant-full-slugs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Too many requests\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "921584bc-3ad2-45a5-85df-ab7b7462c352",
+          "name": "List Organizations for User",
+          "request": {
+            "name": "List Organizations for User",
+            "description": {
+              "content": "Returns a list of organizations that the authenticated user belongs to,\nincluding organization metadata and pre-signed icon URLs.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ide",
+                "list-organizations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fdfcb85d-95c2-42aa-8904-398a77d289b9",
+              "name": "Successfully retrieved organizations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ide",
+                    "list-organizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"organizations\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"slug\": \"string\",\n      \"iconUrl\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"slug\": \"string\",\n      \"iconUrl\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2eab4208-2414-4828-9d56-1891d2c2fc68",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ide",
+                    "list-organizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"User not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.continue.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f2ff7dad-b79b-458d-99b1-3f76978eeaef",
+    "name": "Continue Hub Ide API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for Continue IDE to fetch assistants and other related information.\nThese endpoints are primarily used by the Continue IDE extensions for VS Code and JetBrains.\n\n\nContact Support:\n Name: Continue Dev Team",
+      "type": "text/plain"
+    }
+  }
+}
