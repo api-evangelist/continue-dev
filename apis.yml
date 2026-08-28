@@ -2,6 +2,20 @@ aid: continue-dev
 url: https://raw.githubusercontent.com/api-evangelist/continue-dev/refs/heads/main/apis.yml
 name: Continue
 kind: contract
+deliveryModel:
+  model: saas
+  license: Apache 2.0
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - license
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
