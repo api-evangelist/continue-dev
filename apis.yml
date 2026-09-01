@@ -170,7 +170,7 @@ apis:
   humanURL: https://github.com/continuedev/continue/blob/main/packages/continue-sdk/openapi.yaml
   baseURL: https://api.continue.dev
   tags:
-  - Ide
+  - IDE
   tags_raw:
   - Ide
   properties:
