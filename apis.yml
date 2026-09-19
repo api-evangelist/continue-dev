@@ -130,6 +130,12 @@ apis:
   tags:
   - Hub
   - Registry
+  - Assistant
+  - Blocks
+  - MCP
+  tags_raw:
+  - Hub
+  - Registry
   - Assistants
   - Blocks
   - MCP
