@@ -1,11 +1,9 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Continue Hub Ide API
   description: 'API for Continue IDE to fetch assistants and other related information.
 
-    These endpoints are primarily used by the Continue IDE extensions for VS Code and JetBrains.
-
-    '
+    These endpoints are primarily used by the Continue IDE extensions for VS Code and JetBrains.'
   version: 1.0.0
   contact:
     name: Continue Dev Team
@@ -28,9 +26,7 @@ paths:
 
         This endpoint performs a full refresh of the list of assistants, including unrolling
 
-        configurations and resolving secrets.
-
-        '
+        configurations and resolving secrets.'
       operationId: listAssistants
       parameters:
       - name: alwaysUseProxy
@@ -71,17 +67,19 @@ paths:
                       - configLoadInterrupted
                       properties:
                         config:
-                          type: object
+                          type:
+                          - object
+                          - 'null'
                           description: The unrolled assistant configuration
-                          nullable: true
                         configLoadInterrupted:
                           type: boolean
                           description: Whether the configuration loading was interrupted
                         errors:
-                          type: array
+                          type:
+                          - array
+                          - 'null'
                           items:
                             type: string
-                          nullable: true
                           description: Any errors that occurred during configuration loading
                     ownerSlug:
                       type: string
@@ -90,16 +88,19 @@ paths:
                       type: string
                       description: Slug of the assistant package
                     iconUrl:
-                      type: string
-                      nullable: true
+                      type:
+                      - string
+                      - 'null'
                       description: Pre-signed URL for the assistant's icon
                     onPremProxyUrl:
-                      type: string
-                      nullable: true
+                      type:
+                      - string
+                      - 'null'
                       description: URL of the on-premises proxy if the organization uses one
                     useOnPremProxy:
-                      type: boolean
-                      nullable: true
+                      type:
+                      - boolean
+                      - 'null'
                       description: Whether the organization uses an on-premises proxy
                     rawYaml:
                       type: string
@@ -133,9 +134,7 @@ paths:
 
         This endpoint is useful when you need to retrieve or refresh a specific assistant
 
-        without fetching the entire list.
-
-        '
+        without fetching the entire list.'
       operationId: getAssistant
       parameters:
       - name: ownerSlug
@@ -173,8 +172,9 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                nullable: true
+                type:
+                - object
+                - 'null'
                 required:
                 - configResult
                 - ownerSlug
@@ -187,17 +187,19 @@ paths:
                     - configLoadInterrupted
                     properties:
                       config:
-                        type: object
+                        type:
+                        - object
+                        - 'null'
                         description: The unrolled assistant configuration
-                        nullable: true
                       configLoadInterrupted:
                         type: boolean
                         description: Whether the configuration loading was interrupted
                       errors:
-                        type: array
+                        type:
+                        - array
+                        - 'null'
                         items:
                           type: string
-                        nullable: true
                         description: Any errors that occurred during configuration loading
                   ownerSlug:
                     type: string
@@ -206,16 +208,19 @@ paths:
                     type: string
                     description: Slug of the assistant package
                   iconUrl:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                     description: Pre-signed URL for the assistant's icon
                   onPremProxyUrl:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                     description: URL of the on-premises proxy if the organization uses one
                   useOnPremProxy:
-                    type: boolean
-                    nullable: true
+                    type:
+                    - boolean
+                    - 'null'
                     description: Whether the organization uses an on-premises proxy
                   rawYaml:
                     type: string
@@ -257,9 +262,7 @@ paths:
       summary: Get Free Trial Status for User
       description: 'Returns the current free trial status for the authenticated user, including
 
-        usage counts and limits for chat and autocomplete features.
-
-        '
+        usage counts and limits for chat and autocomplete features.'
       operationId: getFreeTrialStatus
       security:
       - apiKeyAuth: []
@@ -279,12 +282,14 @@ paths:
                     type: boolean
                     description: Whether the user has opted into the free trial
                   chatCount:
-                    type: number
-                    nullable: true
+                    type:
+                    - number
+                    - 'null'
                     description: Current number of chat messages used
                   autocompleteCount:
-                    type: number
-                    nullable: true
+                    type:
+                    - number
+                    - 'null'
                     description: Current number of autocomplete requests used
                   chatLimit:
                     type: number
@@ -309,9 +314,7 @@ paths:
       summary: Get Stripe Checkout URL for Models Add-On
       description: 'Creates a Stripe checkout session for the models add-on subscription
 
-        and returns the checkout URL.
-
-        '
+        and returns the checkout URL.'
       operationId: getModelsAddOnCheckoutUrl
       parameters:
       - name: profile_id
@@ -368,9 +371,7 @@ paths:
       summary: Get Organization Policy
       description: 'Returns the policy configuration for the first organization
 
-        that the user belongs to which has a policy configured.
-
-        '
+        that the user belongs to which has a policy configured.'
       operationId: getPolicy
       security:
       - apiKeyAuth: []
@@ -383,12 +384,14 @@ paths:
                 type: object
                 properties:
                   policy:
-                    type: object
-                    nullable: true
+                    type:
+                    - object
+                    - 'null'
                     description: Organization policy configuration
                   orgSlug:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                     description: Slug of the organization that has the policy
         '404':
           description: User not found
@@ -407,9 +410,7 @@ paths:
       summary: Synchronize Secrets for User
       description: 'Resolves and synchronizes secrets for the authenticated user based on
 
-        the provided Fully Qualified Secret Names (FQSNs).
-
-        '
+        the provided Fully Qualified Secret Names (FQSNs).'
       operationId: syncSecrets
       requestBody:
         required: true
@@ -426,12 +427,14 @@ paths:
                     type: object
                   description: Array of Fully Qualified Secret Names to resolve
                 orgScopeId:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   description: Organization ID to scope secret resolution to
                 orgScopeSlug:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                   description: Organization slug to scope secret resolution to
       security:
       - apiKeyAuth: []
@@ -443,8 +446,9 @@ paths:
               schema:
                 type: array
                 items:
-                  type: object
-                  nullable: true
+                  type:
+                  - object
+                  - 'null'
                   description: Resolved secret result or undefined if not found
         '404':
           description: User not found
@@ -465,9 +469,7 @@ paths:
 
         to prevent constant refreshes of the full assistant list until a
 
-        fixed client version can be deployed.
-
-        '
+        fixed client version can be deployed.'
       operationId: listAssistantFullSlugs
       security:
       - apiKeyAuth: []
@@ -489,9 +491,7 @@ paths:
       summary: List Organizations for User
       description: 'Returns a list of organizations that the authenticated user belongs to,
 
-        including organization metadata and pre-signed icon URLs.
-
-        '
+        including organization metadata and pre-signed icon URLs.'
       operationId: listOrganizations
       security:
       - apiKeyAuth: []
@@ -521,8 +521,9 @@ paths:
                           type: string
                           description: Organization name
                         iconUrl:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                           description: Pre-signed URL for the organization's icon
                         slug:
                           type: string

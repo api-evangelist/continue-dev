@@ -1,7 +1,7 @@
 {
   "provider": "continue-dev",
   "sources": [
-    "continue-dev-ide-api-openapi.yml"
+    "_original/continue-dev-hub-ide-api-openapi.yml"
   ],
   "outputs": [
     "continue-dev-ide-api-openapi.yml"
@@ -9,6 +9,21 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "continue-dev-hub-ide-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "continue-dev-hub-ide-api-openapi.yml: tagged paths GET /ide/list-assistants -> Ide",
+    "continue-dev-hub-ide-api-openapi.yml: tagged paths GET /ide/get-assistant/{ownerSlug}/{packageSlug} -> Ide",
+    "continue-dev-hub-ide-api-openapi.yml: tagged paths GET /ide/free-trial-status -> Ide",
+    "continue-dev-hub-ide-api-openapi.yml: tagged paths GET /ide/get-models-add-on-checkout-url -> Ide",
+    "continue-dev-hub-ide-api-openapi.yml: tagged paths GET /ide/policy -> Ide",
+    "continue-dev-hub-ide-api-openapi.yml: tagged paths POST /ide/sync-secrets -> Ide",
+    "continue-dev-hub-ide-api-openapi.yml: tagged paths GET /ide/list-assistant-full-slugs -> Ide",
+    "continue-dev-hub-ide-api-openapi.yml: tagged paths GET /ide/list-organizations -> Ide",
+    "continue-dev-hub-ide-api-openapi.yml: declared missing tag: Ide",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "continue-dev-ide-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
