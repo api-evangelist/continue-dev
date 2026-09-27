@@ -36,7 +36,7 @@ tags:
   - Artificial Intelligence
   - Developer Tools
   - Code Assistant
-  - Open-Source
+  - Open Source
   - VS Code
   - JetBrains
   - CLI
@@ -53,6 +53,7 @@ tags_raw:
   - CLI
   - MCP
   - Apache 2.0
+  - Open-Source
 created: '2026-05-08'
 modified: '2026-05-25'
 specificationVersion: '0.23'
@@ -71,7 +72,7 @@ apis:
   tags:
   - VS Code
   - JetBrains
-  - Open-Source
+  - Open Source
   - Apache 2.0
   - Artificial Intelligence
   tags_raw:
@@ -80,8 +81,8 @@ apis:
   - Open Source
   - Apache 2.0
   - AI
+  - Open-Source
   humanURL: https://docs.continue.dev/
-  baseURL: https://www.continue.dev
   properties:
   - type: GitHubRepository
     url: https://github.com/continuedev/continue
@@ -100,7 +101,7 @@ apis:
   - CLI
   - CI
   - Checks
-  - Open-Source
+  - Open Source
   - Artificial Intelligence
   tags_raw:
   - CLI
@@ -108,6 +109,7 @@ apis:
   - Checks
   - Open Source
   - AI
+  - Open-Source
   humanURL: https://docs.continue.dev/checks/quickstart
   baseURL: https://continue.dev/check
   properties:
@@ -160,7 +162,6 @@ apis:
   - Observability
   - Checks
   humanURL: https://docs.continue.dev/mission-control/metrics
-  baseURL: https://continue.dev
   properties:
   - type: Documentation
     url: https://docs.continue.dev/mission-control/beyond-checks
