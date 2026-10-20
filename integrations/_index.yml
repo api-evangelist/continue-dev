@@ -31,6 +31,49 @@
     registered_name: dev.continue/docs
     register_id: dev.continue/docs
     detected_by: sweep-agent-tools.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: continue-dev-skills-sh
+  label: skills.sh
+  partner_name: skills.sh
+  category: Agent Skills register
+  type: register
+  channel: standard-directory
+  evidence: https://www.skills.sh/continuedev/skills
+  source: edge
+  relationship: compatible
+  contract_reference:
+    register: skills.sh (public sitemap / list)
+    spec_file: null
+    standard: Agent Skills (agentskills.io)
+    role: agent-skills-listing
+    matched_org: continuedev
+    matched_by: org-profile-domain:continue.dev
+    sample_skills:
+    - check
+    detected_by: sweep-agent-skills.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
+- slug: continue-dev-skillsmp-skillsmp-com
+  label: SkillsMP (skillsmp.com)
+  partner_name: SkillsMP (skillsmp.com)
+  category: Agent Skills register
+  type: register
+  channel: standard-directory
+  evidence: https://skillsmp.com/creators/continuedev
+  source: edge
+  relationship: compatible
+  contract_reference:
+    register: SkillsMP (skillsmp.com) (public sitemap / list)
+    spec_file: null
+    standard: Agent Skills (agentskills.io)
+    role: agent-skills-listing
+    matched_org: continuedev
+    matched_by: org-profile-domain:continue.dev
+    sample_skills: []
+    detected_by: sweep-agent-skills.py
+    detected: '2026-10-20'
   status: not-a-workflow
   arazzo: null
