@@ -1,4 +1,4 @@
-# Continue (continue-dev)
+# Continue
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,200 +66,165 @@
 
 Continue is the open-source AI code assistant for VS Code and JetBrains, distributed under Apache 2.0. The Continue IDE extensions and the Continue CLI federate to any LLM provider — Anthropic, OpenAI, Mistral, OpenRouter, Ollama, and a Continue-managed proxy — and load their configuration from Continue Hub. Continue Hub (api.continue.dev) is the registry and IDE API that serves assistants, blocks, models, rules, prompts, docs, and MCP servers to the extensions, along with free-trial status, organization policy, secrets sync, and the Stripe checkout URL for the Models Add-On. Continue has also pivoted into "continuous AI" — source- controlled checks that live as markdown files under .continue/checks/ and run in CI as GitHub status checks.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/continue-dev/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/continue-dev/refs/heads/main/apis.yml)
+**Areas:** Artificial Intelligence · Developer Tools · Code Assistant · Open Source · VS Code · JetBrains · CLI · MCP · Apache 2.0
 
-## Scope
+## Continue on APIs.io
 
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for Continue is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/continue-dev/](https://apis.io/providers/continue-dev/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (5)
 
-- AI
-- Artificial Intelligence
-- Developer Tools
-- Code Assistant
-- Open Source
-- VS Code
-- JetBrains
-- CLI
-- MCP
-- Apache 2.0
+- [Continue IDE Extensions](https://apis.io/apis/continue-dev/ide-extensions/) — Open-source IDE plugins shipping for VS Code and JetBrains. Provide chat, edit, apply, autocomplete, and agent modes. Bring your own LLM (Anthropic, OpenAI,…
+- [Continue CLI](https://apis.io/apis/continue-dev/continue-cli/) — Open-source command-line interface powering Continue's source-controlled AI checks. Checks are markdown files in .continue/checks/ that run as full AI…
+- [Continue Hub](https://apis.io/apis/continue-dev/continue-hub/) — Hosted registry where teams publish and share assistants, blocks (models, rules, prompts, docs, MCP servers, context providers), and policy. Powers the…
+- [Continue Mission Control](https://apis.io/apis/continue-dev/mission-control/) — Observability surface for tracking check outcomes, agent runs, and adoption metrics across an organization's repositories. Part of the Team and Company tiers.
+- [Continue Ide API](https://apis.io/apis/continue-dev/continue-dev-ide-api/) — The Ide API from Continue — 8 operation(s) for ide.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-08
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Continue Hub IDE API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-REST API exposed by api.continue.dev that the Continue VS Code and JetBrains extensions and the Continue CLI use to list and refresh assistants, list organizations, fetch organization policy, sync user secrets, check free-trial chat/autocomplete quota, and obtain a Stripe checkout URL for the Models Add-On. Bearer auth with API keys prefixed con_, generated in the Continue Hub web interface. Auto-generated TypeScript and Python clients ship in packages/continue-sdk in the open-source continuedev/continue monorepo.
+- [Continue Dev Agentic Access](https://apis.io/agentic-access/continue-dev/continue-dev-agentic-access/)
 
-- **Human URL:** [https://github.com/continuedev/continue/blob/main/packages/continue-sdk/openapi.yaml](https://github.com/continuedev/continue/blob/main/packages/continue-sdk/openapi.yaml)
-- **Base URL:** `https://api.continue.dev`
+#### JSON Schema (3)
 
-#### Tags
+The data models the API reads and writes.
 
-- Hub
-- IDE
-- Assistants
-- Organizations
-- AI
+- [Continue Hub Assistant](https://apis.io/schemas/continue-dev/continue-dev-assistant/)
+- [Continue Free Trial Status](https://apis.io/schemas/continue-dev/continue-dev-free-trial-status/)
+- [Continue Hub Organization](https://apis.io/schemas/continue-dev/continue-dev-organization/)
 
-#### Properties
+#### JSON Structure (1)
 
-- [Documentation](https://github.com/continuedev/continue/tree/main/packages/continue-sdk)
-- [OpenAPI](openapi/continue-dev-hub-ide-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/continue-dev-hub-ide-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/continue-dev-hub-ide-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/continue-dev-assistant-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/continue-dev-organization-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/continue-dev-free-trial-status-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/continue-dev-assistant-structure.json)
-- [JSON-LD](json-ld/continue-dev-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Example](examples/continue-dev-list-assistants-example.json)
-- [Example](examples/continue-dev-list-organizations-example.json)
-- [Example](examples/continue-dev-free-trial-status-example.json)
-- [SDK](https://www.npmjs.com/package/@continuedev/sdk)
-- [SDK](https://pypi.org/project/continuedev-sdk/)
+Data models expressed in JSON Structure.
 
-### Continue IDE Extensions
+- [Continue Dev Assistant Structure](https://apis.io/json-structure/continue-dev/continue-dev-assistant-structure/)
 
-Open-source IDE plugins shipping for VS Code and JetBrains. Provide chat, edit, apply, autocomplete, and agent modes. Bring your own LLM (Anthropic, OpenAI, Mistral, OpenRouter, Ollama) or use the Continue-managed proxy on the Hub Starter/Team tiers. Configured via YAML assistants pulled from Continue Hub.
+#### JSON-LD (1)
 
-- **Human URL:** [https://docs.continue.dev/](https://docs.continue.dev/)
-- **Base URL:** `https://www.continue.dev`
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Continue Dev Context](https://apis.io/jsonld/continue-dev/continue-dev-context/)
 
-- VS Code
-- JetBrains
-- Open Source
-- Apache 2.0
-- AI
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [GitHub Repository](https://github.com/continuedev/continue)
-- [Documentation](https://docs.continue.dev/)
-- [License](https://github.com/continuedev/continue/blob/main/LICENSE)
-- [Postman Collection](collections/continue-dev-hub-ide-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/continue-dev-hub-ide-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Continue Vocabulary](https://apis.io/vocabularies/continue-dev/continue-dev-vocabulary/)
 
-### Continue CLI
+#### Examples (2)
 
-Open-source command-line interface powering Continue's source-controlled AI checks. Checks are markdown files in .continue/checks/ that run as full AI agents against pull requests and surface results as GitHub status checks. Also runs assistants locally and headlessly.
+Example requests and responses.
 
-- **Human URL:** [https://docs.continue.dev/checks/quickstart](https://docs.continue.dev/checks/quickstart)
-- **Base URL:** `https://continue.dev/check`
+- [Continue Dev Free Trial Status Example](https://apis.io/examples/continue-dev/continue-dev-free-trial-status-example/)
+- [Continue Dev List Organizations Example](https://apis.io/examples/continue-dev/continue-dev-list-organizations-example/)
 
-#### Tags
+#### Collections (3)
 
-- CLI
-- CI
-- Checks
-- Open Source
-- AI
+Postman and Open Collection request collections.
 
-#### Properties
+- [Continue Hub IDE API](https://apis.io/collections/continue-dev/open-continue-dev-hub-ide-api/)
+- [Continue Hub Ide API](https://apis.io/collections/continue-dev/open-continue-dev-ide-api/)
+- [Continue Hub Ide API](https://apis.io/collections/continue-dev/postman-continue-dev-ide-api/)
 
-- [GitHub Repository](https://github.com/continuedev/continue)
-- [Documentation](https://docs.continue.dev/checks/quickstart)
-- [Documentation](https://docs.continue.dev/checks/running-locally)
-- [Documentation](https://docs.continue.dev/checks/running-in-ci)
-- [Postman Collection](collections/continue-dev-hub-ide-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/continue-dev-hub-ide-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Governance rules (2)
 
-### Continue Hub
+Spectral rulesets for the provider's contracts.
 
-Hosted registry where teams publish and share assistants, blocks (models, rules, prompts, docs, MCP servers, context providers), and policy. Powers the Continue Hub IDE API and is the primary commercial surface alongside the open-source extensions and CLI.
+- [Continue — jsonschema rules](https://apis.io/rules/continue-dev/continue-dev-jsonschema-spectral-rules/)
+- [Continue API Rules](https://apis.io/rules/continue-dev/continue-dev-rules/)
 
-- **Human URL:** [https://hub.continue.dev/](https://hub.continue.dev/)
-- **Base URL:** `https://hub.continue.dev`
+#### Security (2)
 
-#### Tags
+Authentication, trust centre, and vulnerability disclosure.
 
-- Hub
-- Registry
-- Assistants
-- Blocks
-- MCP
+- [Continue Dev Authentication](https://apis.io/security/continue-dev/continue-dev-authentication/)
+- [Continue Dev Domain Security](https://apis.io/security/continue-dev/continue-dev-domain-security/)
 
-#### Properties
+#### Plans and pricing (1)
 
-- [Portal](https://hub.continue.dev/)
-- [Documentation](https://docs.continue.dev/)
-- [Sign Up](https://continue.dev/login)
-- [Postman Collection](collections/continue-dev-hub-ide-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/continue-dev-hub-ide-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published plans, tiers and prices.
 
-### Continue Mission Control
+- [Continue Dev Plans Pricing](https://apis.io/plans/continue-dev/continue-dev-plans-pricing/)
 
-Observability surface for tracking check outcomes, agent runs, and adoption metrics across an organization's repositories. Part of the Team and Company tiers.
+#### Rate limits (1)
 
-- **Human URL:** [https://docs.continue.dev/mission-control/metrics](https://docs.continue.dev/mission-control/metrics)
-- **Base URL:** `https://continue.dev`
+Published request limits.
 
-#### Tags
+- [Continue Dev Rate Limits](https://apis.io/rate-limits/continue-dev/continue-dev-rate-limits/)
 
-- Mission Control
-- Metrics
-- Observability
-- Checks
+#### FinOps (1)
 
-#### Properties
+What the API costs to run, by operation.
 
-- [Documentation](https://docs.continue.dev/mission-control/beyond-checks)
-- [Documentation](https://docs.continue.dev/mission-control/metrics)
-- [Postman Collection](collections/continue-dev-hub-ide-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/continue-dev-hub-ide-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Continue Dev Finops](https://apis.io/finops/continue-dev/continue-dev-finops/)
 
-## Common Properties
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.continue.dev/)
-- [Portal](https://www.continue.dev/)
 - [Documentation](https://docs.continue.dev/)
-- [GitHub Organization](https://github.com/continuedev)
-- [GitHub Repository](https://github.com/continuedev/continue)
-- [LinkedIn](https://www.linkedin.com/company/continuedev)
-- [Blog](https://blog.continue.dev/)
-- [Sign Up](https://continue.dev/login)
+- [Getting started](https://docs.continue.dev/)
 - [Pricing](https://www.continue.dev/pricing)
-- [Getting Started](https://docs.continue.dev/)
-- [Documentation](https://docs.continue.dev/checks/quickstart)
-- [Documentation](https://docs.continue.dev/checks/reference)
-- [Checks Docs](https://continue.dev/check)
-- [Hub](https://hub.continue.dev/)
-- [License](https://github.com/continuedev/continue/blob/main/LICENSE)
-- [SDK](https://github.com/continuedev/continue/tree/main/packages/continue-sdk/typescript)
-- [SDK](https://github.com/continuedev/continue/tree/main/packages/continue-sdk/python)
-- [Tool](https://github.com/continuedev/rules)
-- [Tool](https://github.com/continuedev/create-software-factory)
-- [Tool](https://github.com/continuedev/pollhook)
-- [Tool](https://github.com/continuedev/instinct)
-- [Code Examples](https://github.com/continuedev/awesome-rules)
-- [Code Examples](https://github.com/continuedev/checks)
-- [Plugins](https://github.com/continuedev/anthropic-continue-hub)
-- [Plugins](https://github.com/continuedev/openai-continue-hub)
-- [Plugins](https://github.com/continuedev/mistral-continue-hub)
-- [Plugins](https://github.com/continuedev/openrouter-continue-hub)
-- [Plugins](https://github.com/continuedev/ollama-continue-hub)
-- [Plugins](https://github.com/continuedev/google-continue-hub)
-- [Spectral Rules](rules/continue-dev-rules.yml)
-- [Vocabulary](vocabulary/continue-dev-vocabulary.yml)
-- [Plans](plans/continue-dev-plans-pricing.yml)
-- [Rate Limits](rate-limits/continue-dev-rate-limits.yml)
-- [Fin Ops](finops/continue-dev-finops.yml)
-- [L L Ms Txt](https://docs.continue.dev/llms.txt)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Solutions](undefined)
+- [Blog](https://blog.continue.dev/)
+- [GitHub](https://github.com/continuedev)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 45.7** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 60.0 |
+| Contract governance | 27.3 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 63.1 |
+| Access clarity | 21.1 |
+
+**Agent readiness 23.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 15.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/continue-dev/](https://apis.io/providers/continue-dev/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Continue: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/continue-dev/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
